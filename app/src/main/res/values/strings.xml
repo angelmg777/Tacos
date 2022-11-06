@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Tacos</string>
+    <string name="loginTitle">Inicio de Sesion</string>
+    <string name="user">Ingrese el usuario</string>
+    <string name="password">Ingrese la contraseña</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="salir">Salir</string>
+    <string name="menu">Menu Tacos Bala</string>
+
+
 </resources>
