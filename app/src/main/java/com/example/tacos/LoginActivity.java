@@ -62,19 +62,20 @@ public class LoginActivity extends AppCompatActivity {
 
         if (!usuario.matches("") && !password.matches("")) {
             for (int i = 0; i < usuarios.length; i++) {
-            if (usuarios[i].getCorreo().equals(usuario) && usuarios[i].getContraseña().equals(password)) {
-                User = new Usuario(usuario, password);
-                guardarReferencias(User);
+                if (usuarios[i].getCorreo().equals(usuario) && usuarios[i].getContraseña().equals(password)) {
+                    User = new Usuario(usuario, password);
+                    guardarReferencias(User);
 
-                Intent intent = new Intent(this, MenuActivity.class);
-                startActivity(intent);
-                finish();
-            } else {
+                    Intent intent = new Intent(this, MenuActivity.class);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+            }
                 Toast toast = Toast.makeText(getApplicationContext(), "La contraseña o el usuario es incorrecto", Toast.LENGTH_SHORT);
                 toast.show();
-            }
-            break;
-        }
+                return;
+
         }else {
             Toast toast = Toast.makeText(getApplicationContext(), "Llene todos los campos", Toast.LENGTH_SHORT);
             toast.show();

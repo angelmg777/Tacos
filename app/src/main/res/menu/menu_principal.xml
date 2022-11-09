@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemAgTaco"
+        android:title="Agregar Taco" />
+    <item
+        android:id="@+id/itemElTaco"
+        android:title="Eliminar Taco" />
+    <item
+        android:id="@+id/itemAgBebida"
+        android:title="Agregar Bebida" />
+    <item
+        android:id="@+id/itemElBebida"
+        android:title="Eliminar Bebida" />
+    <item
+        android:id="@+id/itemLogout"
+        android:title="Cerrar sesión" />
+</menu>
