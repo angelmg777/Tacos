@@ -1,6 +1,8 @@
 package com.example.tacos;
 
-public class ClaseBebida {
+import java.io.Serializable;
+
+public class ClaseBebida implements Serializable {
 
     public int precio;
     public String nombre;
@@ -10,7 +12,7 @@ public class ClaseBebida {
         this.nombre = "";
     }
 
-    public ClaseBebida(int precio, String nombre) {
+    public ClaseBebida(String nombre, int precio) {
         this.precio = precio;
         this.nombre = nombre;
     }

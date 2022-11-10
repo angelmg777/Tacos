@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_agregar_bebida.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_agregar_taco.xml" value="0.25" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_eliminar_bebida.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_eliminar_taco.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_login.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_menu.xml" value="0.22871376811594202" />
