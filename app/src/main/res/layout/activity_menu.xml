@@ -6,21 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MenuActivity">
 
-    <Button
-        android:id="@+id/btnSalir2"
-        android:layout_width="111dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="139dp"
-        android:layout_marginBottom="252dp"
-        android:backgroundTint="#FF1744"
-        android:onClick="cerrarSesion"
-        android:text="@string/salir"
-        android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnIngresar" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"

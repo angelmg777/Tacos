@@ -1,32 +1,35 @@
 package com.example.tacos;
 
-public class ClaseOrden {
-    public ClaseTaco[] platillos;
-    public ClaseBebida[] bebidas;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class ClaseOrden implements Serializable {
+    public ArrayList<ClaseTaco> platillos;
+    public ArrayList<ClaseBebida> bebidas;
 
     public ClaseOrden() {
         this.platillos = null;
         this.bebidas = null;
     }
 
-    public ClaseOrden(ClaseTaco[] platillos, ClaseBebida[] bebidas) {
+    public ClaseOrden(ArrayList<ClaseTaco> platillos, ArrayList<ClaseBebida> bebidas) {
         this.platillos = platillos;
         this.bebidas = bebidas;
     }
 
-    public ClaseTaco[] getPlatillos() {
+    public ArrayList<ClaseTaco> getPlatillos() {
         return platillos;
     }
 
-    public ClaseBebida[] getBebidas() {
+    public ArrayList<ClaseBebida> getBebidas() {
         return bebidas;
     }
 
-    public void setPlatillos(ClaseTaco[] platillos) {
+    public void setPlatillos(ArrayList<ClaseTaco> platillos) {
         this.platillos = platillos;
     }
 
-    public void setBebidas(ClaseBebida[] bebidas) {
+    public void setBebidas(ArrayList<ClaseBebida> bebidas) {
         this.bebidas = bebidas;
     }
 }

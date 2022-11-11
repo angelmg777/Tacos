@@ -1,16 +1,16 @@
 package com.example.tacos;
 
-public class Usuario {
+public class ClaseUsuario {
     String correo, contraseña;
     boolean registrado;
 
-    Usuario(){
+    ClaseUsuario(){
         correo = "";
         contraseña = "";
         registrado = false;
     }
 
-    public Usuario(String correo, String contraseña) {
+    public ClaseUsuario(String correo, String contraseña) {
         this.correo = correo;
         this.contraseña = contraseña;
         this.registrado = true;

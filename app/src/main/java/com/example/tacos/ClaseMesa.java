@@ -1,15 +1,18 @@
 package com.example.tacos;
 
-public class ClaseMesa {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class ClaseMesa implements Serializable {
     public int id;
-    public ClaseOrden[] cuentas;
+    public ArrayList<ClaseOrden> cuentas;
 
     public ClaseMesa() {
         this.id = 0;
-        this.cuentas = null;
+        this.cuentas = new ArrayList<ClaseOrden>();
     }
 
-    public ClaseMesa(int id, ClaseOrden[] cuentas) {
+    public ClaseMesa(int id, ArrayList<ClaseOrden> cuentas) {
         this.id = id;
         this.cuentas = cuentas;
     }
@@ -18,7 +21,7 @@ public class ClaseMesa {
         this.id = id;
     }
 
-    public void setCuentas(ClaseOrden[] cuentas) {
+    public void setCuentas(ArrayList<ClaseOrden> cuentas) {
         this.cuentas = cuentas;
     }
 
@@ -26,7 +29,7 @@ public class ClaseMesa {
         return id;
     }
 
-    public ClaseOrden[] getCuentas() {
+    public ArrayList<ClaseOrden> getCuentas() {
         return cuentas;
     }
 }

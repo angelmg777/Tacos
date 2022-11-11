@@ -6,18 +6,25 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
 
+    //Listas y arrays
+    ArrayList<ClaseBebida> listaBebidas;
+    ArrayList<ClaseOrden> listaOrdenes;
+    ArrayList<ClaseTaco> listaTacos;
+    ClaseMesa[] arrayMesas;
+
+    //Globales de esta Activity
     EditText user, pass;
     Button ingresar, salir;
-    Usuario User;
-    Usuario[] usuarios = new Usuario[3];
+    ClaseUsuario User;
+    ClaseUsuario[] usuarios = new ClaseUsuario[3];
     int i=0;
 
 
@@ -26,9 +33,16 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Usuario angel = new Usuario("Angel","Angel123");
-        Usuario jorge = new Usuario("Jorge","Jorge123");
-        Usuario rogelio = new Usuario("Rogelio","Rogelio123");
+        //Listas y arrays
+        listaTacos = (ArrayList<ClaseTaco>) getIntent().getSerializableExtra("listaTacos");
+        listaBebidas = (ArrayList<ClaseBebida>) getIntent().getSerializableExtra("listaBebidas");
+        listaOrdenes = (ArrayList<ClaseOrden>) getIntent().getSerializableExtra("listaOrdenes");
+        arrayMesas = (ClaseMesa[]) getIntent().getSerializableExtra("arrayMesas");
+
+        //Configuracion de esta activity
+        ClaseUsuario angel = new ClaseUsuario("Angel","Angel123");
+        ClaseUsuario jorge = new ClaseUsuario("Jorge","Jorge123");
+        ClaseUsuario rogelio = new ClaseUsuario("Rogelio","Rogelio123");
 
         usuarios[0] = angel;
         usuarios[1] = jorge;
@@ -39,13 +53,11 @@ public class LoginActivity extends AppCompatActivity {
         ingresar = (Button) findViewById(R.id.btnIngresar);
         salir = (Button) findViewById(R.id.btnSalir);
 
-
-
     }
 
 
 
-    public void guardarReferencias(Usuario usr){
+    public void guardarReferencias(ClaseUsuario usr){
 
         SharedPreferences preferences = getSharedPreferences("user.dat",MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
@@ -62,19 +74,27 @@ public class LoginActivity extends AppCompatActivity {
 
         if (!usuario.matches("") && !password.matches("")) {
             for (int i = 0; i < usuarios.length; i++) {
-            if (usuarios[i].getCorreo().equals(usuario) && usuarios[i].getContraseña().equals(password)) {
-                User = new Usuario(usuario, password);
-                guardarReferencias(User);
+                if (usuarios[i].getCorreo().equals(usuario) && usuarios[i].getContraseña().equals(password)) {
+                    User = new ClaseUsuario(usuario, password);
+                    guardarReferencias(User);
 
-                Intent intent = new Intent(this, MenuActivity.class);
-                startActivity(intent);
-                finish();
-            } else {
+                    Intent intent = new Intent(this, MenuActivity.class);
+
+                    //Nos llevamos todos de paseo
+                    intent.putExtra("listaTacos", listaTacos);
+                    intent.putExtra("listaBebidas", listaBebidas);
+                    intent.putExtra("listaOrdenes", listaOrdenes);
+                    intent.putExtra("arrayMesas", arrayMesas);
+
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+            }
                 Toast toast = Toast.makeText(getApplicationContext(), "La contraseña o el usuario es incorrecto", Toast.LENGTH_SHORT);
                 toast.show();
-            }
-            break;
-        }
+                return;
+
         }else {
             Toast toast = Toast.makeText(getApplicationContext(), "Llene todos los campos", Toast.LENGTH_SHORT);
             toast.show();
