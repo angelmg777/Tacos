@@ -49,6 +49,20 @@ public class MainActivity extends AppCompatActivity {
         //Inicializacion de array de mesas (porque aqui tiene que haber un numero de mesas por defecto)
         ClaseMesa[] arrayMesas = new ClaseMesa[12];
 
+        //Las inicializamos todas con el constructor por defecto, para que así se inicialize su lista de ordenes
+        arrayMesas[0] = new ClaseMesa();
+        arrayMesas[1] = new ClaseMesa();
+        arrayMesas[2] = new ClaseMesa();
+        arrayMesas[3] = new ClaseMesa();
+        arrayMesas[4] = new ClaseMesa();
+        arrayMesas[5] = new ClaseMesa();
+        arrayMesas[6] = new ClaseMesa();
+        arrayMesas[7] = new ClaseMesa();
+        arrayMesas[8] = new ClaseMesa();
+        arrayMesas[9] = new ClaseMesa();
+        arrayMesas[10] = new ClaseMesa();
+        arrayMesas[11] = new ClaseMesa();
+
         if(nuevoUsuario()){
             intent = new Intent(MainActivity.this, MenuActivity.class);
             //Inicialiamos todos las listas y array en el main para asi ya nomas estar paseandolos en las activities

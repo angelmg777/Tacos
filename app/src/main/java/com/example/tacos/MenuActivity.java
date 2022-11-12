@@ -7,6 +7,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -19,7 +22,7 @@ public class MenuActivity extends AppCompatActivity {
     ClaseMesa[] arrayMesas;
 
     //Globales de esta Activity
-
+    ImageButton imbMostrarOrdenes, imbAdministrarOrdenes, imbMesas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,9 @@ public class MenuActivity extends AppCompatActivity {
         arrayMesas = (ClaseMesa[]) getIntent().getSerializableExtra("arrayMesas");
 
         //Configuracion de esta activity
+        imbMesas = (ImageButton) findViewById(R.id.imbMesas);
+        imbAdministrarOrdenes = (ImageButton) findViewById(R.id.imbAdministrarOrdenes);
+        imbMostrarOrdenes = (ImageButton) findViewById(R.id.imbMostrarOrdenes);
 
     }
 
@@ -57,16 +63,25 @@ public class MenuActivity extends AppCompatActivity {
                 agTaco.putExtra("listaOrdenes", listaOrdenes);
                 agTaco.putExtra("arrayMesas", arrayMesas);
                 startActivity(agTaco);
+                this.finish();
                 break;
             case R.id.itemElTaco:
-                Intent elTaco = new Intent(this, EliminarTacoActivity.class);
-                //Nos llevamos todos de paseo
-                elTaco.putExtra("listaTacos", listaTacos);
-                elTaco.putExtra("listaBebidas", listaBebidas);
-                elTaco.putExtra("listaOrdenes", listaOrdenes);
-                elTaco.putExtra("arrayMesas", arrayMesas);
-                startActivity(elTaco);
+
+                if(listaTacos.isEmpty()){
+                    Toast toast = Toast.makeText(getApplicationContext(), "¡No hay tacos para eliminar!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+                    Intent elTaco = new Intent(this, EliminarTacoActivity.class);
+                    //Nos llevamos todos de paseo
+                    elTaco.putExtra("listaTacos", listaTacos);
+                    elTaco.putExtra("listaBebidas", listaBebidas);
+                    elTaco.putExtra("listaOrdenes", listaOrdenes);
+                    elTaco.putExtra("arrayMesas", arrayMesas);
+                    startActivity(elTaco);
+                    this.finish();
+                }
                 break;
+
             case R.id.itemAgBebida:
                 Intent agBebida = new Intent(this, AgregarBebidaActivity.class);
                 //Nos llevamos todos de paseo
@@ -75,16 +90,25 @@ public class MenuActivity extends AppCompatActivity {
                 agBebida.putExtra("listaOrdenes", listaOrdenes);
                 agBebida.putExtra("arrayMesas", arrayMesas);
                 startActivity(agBebida);
+                this.finish();
                 break;
             case R.id.itemElBebida:
-                Intent elBebida = new Intent(this, EliminarBebidaActivity.class);
-                //Nos llevamos todos de paseo
-                elBebida.putExtra("listaTacos", listaTacos);
-                elBebida.putExtra("listaBebidas", listaBebidas);
-                elBebida.putExtra("listaOrdenes", listaOrdenes);
-                elBebida.putExtra("arrayMesas", arrayMesas);
-                startActivity(elBebida);
+
+                if(listaBebidas.isEmpty()){
+                    Toast toast = Toast.makeText(getApplicationContext(), "¡No hay bebidas para eliminar!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+                    Intent elBebida = new Intent(this, EliminarBebidaActivity.class);
+                    //Nos llevamos todos de paseo
+                    elBebida.putExtra("listaTacos", listaTacos);
+                    elBebida.putExtra("listaBebidas", listaBebidas);
+                    elBebida.putExtra("listaOrdenes", listaOrdenes);
+                    elBebida.putExtra("arrayMesas", arrayMesas);
+                    startActivity(elBebida);
+                    this.finish();
+                }
                 break;
+
             case R.id.itemLogout:
                 cerrarSesion();
                 break;
@@ -92,18 +116,6 @@ public class MenuActivity extends AppCompatActivity {
         }//switch
         return super.onOptionsItemSelected(item);
     }//Funcion
-
-
-    /*public void cerrarSesion(View view){
-        SharedPreferences preferencias = getSharedPreferences("user.dat",MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferencias.edit();
-        editor.clear();
-        editor.apply();
-        Intent logout = new Intent(this, MainActivity.class);
-        logout.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(logout);
-        finish();
-    }*/ //Comentado para no perderlo, le quite el view view para que pueda ser llamado desde el item del menu Logout
 
     public void cerrarSesion() {
         SharedPreferences preferencias = getSharedPreferences("user.dat", MODE_PRIVATE);
@@ -115,4 +127,38 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(logout);
         finish();
     }
+
+    public void mesas(View view){
+        /*Intent intent = new Intent(this, MesasActivity.class);
+        //Nos llevamos todos de paseo
+        intent.putExtra("listaTacos", listaTacos);
+        intent.putExtra("listaBebidas", listaBebidas);
+        intent.putExtra("listaOrdenes", listaOrdenes);
+        intent.putExtra("arrayMesas", arrayMesas);
+        startActivity(intent);
+        this.finish();*/
+    }
+
+    public void mostrarOrdenes(View view){
+        /*Intent intent = new Intent(this, OrdenesActivity.class);
+        //Nos llevamos todos de paseo
+        intent.putExtra("listaTacos", listaTacos);
+        intent.putExtra("listaBebidas", listaBebidas);
+        intent.putExtra("listaOrdenes", listaOrdenes);
+        intent.putExtra("arrayMesas", arrayMesas);
+        startActivity(intent);
+        this.finish();*/
+    }
+
+    public void administrarOrdenes(View view){
+        Intent intent = new Intent(this, AdministrarOrdenActivity.class);
+        //Nos llevamos todos de paseo
+        intent.putExtra("listaTacos", listaTacos);
+        intent.putExtra("listaBebidas", listaBebidas);
+        intent.putExtra("listaOrdenes", listaOrdenes);
+        intent.putExtra("arrayMesas", arrayMesas);
+        startActivity(intent);
+        this.finish();
+    }
+
 }

@@ -71,7 +71,7 @@ public class AgregarTacoActivity extends AppCompatActivity {
         edtNombreTaco.setText("");
         edtPrecioTaco.setText("");
 
-        Toast toast = Toast.makeText(getApplicationContext(), nombre + " ha sido agregado al menu", Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(), nuevoTaco.getNombre() + " ha sido agregado al menu", Toast.LENGTH_SHORT);
         toast.show();
     }
 
