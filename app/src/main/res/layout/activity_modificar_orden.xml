@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spnModificarOrdenId"
         android:layout_width="397dp"
         android:layout_height="47dp"
         android:layout_marginTop="10dp"
@@ -44,48 +44,63 @@
         android:id="@+id/btnModificarAñadirT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:onClick="modificarOrdenAñadirT"
         android:text="Añadir Taco(s)"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="286dp" />
+        app:layout_constraintEnd_toStartOf="@+id/btnModificarAñadirB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spnModificarOrdenId" />
 
     <Button
         android:id="@+id/btnModificarAñadirB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:onClick="modificarOrdenAñadirB"
         android:text="Añadir Bebida(s)"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="286dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnModificarAñadirT"
+        app:layout_constraintTop_toBottomOf="@+id/spnModificarOrdenId" />
 
     <Button
         android:id="@+id/btnModificarQuitarT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:onClick="modificarOrdenQuitarT"
         android:text="Quitar Taco(s)"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="389dp" />
+        app:layout_constraintEnd_toStartOf="@+id/btnModificarQuitarB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnModificarAñadirT" />
 
     <Button
         android:id="@+id/btnModificarQuitarB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:onClick="modificarOrdenQuitarB"
         android:text="Quitar Bebida(s)"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="389dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnModificarQuitarT"
+        app:layout_constraintTop_toBottomOf="@+id/btnModificarAñadirB" />
 
     <Button
         android:id="@+id/btnEliminarOrden"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="61dp"
+        android:onClick="eliminarOrden"
         android:text="Eliminar Orden"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="498dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnModificarQuitarT" />
 
     <Button
         android:id="@+id/btnVolverMenuModificar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
-        android:text="Volver"
+        android:text="volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
