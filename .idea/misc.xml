@@ -12,7 +12,10 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_menu.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_modificar_orden.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_modificar_orden_anadir_bactivity.xml" value="0.264" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_modificar_orden_anadir_tactivity.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_modificar_orden_quitar_bactivity.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_modificar_orden_quitar_tactivity.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_nueva_orden.xml" value="0.2" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_nueva_orden_bebidas.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_nueva_orden_tacos.xml" value="0.22871376811594202" />

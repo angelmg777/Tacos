@@ -11,12 +11,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ModificarOrdenAnadirTActivity extends AppCompatActivity {
+public class ModificarOrdenQuitarTActivity extends AppCompatActivity {
 
     //Listas y arrays
     ArrayList<ClaseBebida> listaBebidas;
@@ -26,15 +25,17 @@ public class ModificarOrdenAnadirTActivity extends AppCompatActivity {
 
     //Globales de esta Activity
     String ordenId;
-    ListView lvModificarAñadirT;
-    Button btnVolverModificarAñadirT;
+    Button btnVolverModificarOrdenQuitarT;
+    ListView lvModificarQuitarT;
     String[] elementos;
     ArrayAdapter<String> adapter;
+    ClaseOrden ordenTemporal;
+    int idInt, posicionDelTemporal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_modificar_orden_anadir_tactivity);
+        setContentView(R.layout.activity_modificar_orden_quitar_tactivity);
 
         //Listas y arrays
         listaTacos = (ArrayList<ClaseTaco>) getIntent().getSerializableExtra("listaTacos");
@@ -44,49 +45,53 @@ public class ModificarOrdenAnadirTActivity extends AppCompatActivity {
 
         //Configuracion de esta activity
         ordenId = (String) getIntent().getStringExtra("ordenId");
-        lvModificarAñadirT = (ListView) findViewById(R.id.lvModificarAñadirT);
-        btnVolverModificarAñadirT = (Button) findViewById(R.id.btnVolverModificarOrdenAñadirT);
+        lvModificarQuitarT = (ListView) findViewById(R.id.lvModificarQuitarT);
+        btnVolverModificarOrdenQuitarT = (Button) findViewById(R.id.btnVolverModificarOrdenAñadirT);
+        idInt = Integer.parseInt(ordenId); //Aqui lo pasamos a integer
+
+        //Hacemos un for para buscar el elemento que comparta el id de ordenId y asignarlo a la variable temporal
+        for (int i = 0; i < listaOrdenes.size(); i++) {
+            if(listaOrdenes.get(i).getId() == idInt){
+                ordenTemporal = listaOrdenes.get(i);
+                posicionDelTemporal = i;
+                i = listaOrdenes.size();
+            }
+        }
+
+        if(ordenTemporal.getPlatillos().isEmpty()){
+            volver();
+            return;
+        }
 
         //Creo un array String donde junto el nombre del taco y su precio para que se vea mas presentable
-        elementos = new String[listaTacos.size()];
+        elementos = new String[ordenTemporal.getPlatillos().size()];
 
         for (int i = 0; i < elementos.length; i++) {
-            String precio = Integer.toString(listaTacos.get(i).getPrecio());
-            elementos[i] = listaTacos.get(i).getNombre() + " $" + precio;
+            String precio = Integer.toString(ordenTemporal.getPlatillos().get(i).getPrecio());
+            elementos[i] = ordenTemporal.getPlatillos().get(i).getNombre() + " $" + precio;
         }
 
         //Ponemos el adaptador (para que se muestren los elementos en el listview)
         adapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, elementos);
-        lvModificarAñadirT.setAdapter(adapter);
+        lvModificarQuitarT.setAdapter(adapter);
 
         //Hacemos el efecto chido de borrar con click
-        lvModificarAñadirT.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        lvModificarQuitarT.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int item, long l) {
 
                 //Mostramos una alerta
-                new AlertDialog.Builder(ModificarOrdenAnadirTActivity.this)
-                        .setTitle("¿Añadir " + listaTacos.get(item).getNombre() + " a la orden con el ID " + ordenId + "?")
+                new AlertDialog.Builder(ModificarOrdenQuitarTActivity.this)
+                        .setTitle("¿Remover " + ordenTemporal.getPlatillos().get(item).getNombre() + " de la orden con el ID " + ordenId + "?")
                         .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast toast = Toast.makeText(getApplicationContext(), "Se ha añadido " + listaTacos.get(item).getNombre() + " a la orden con el ID " + ordenId, Toast.LENGTH_SHORT);
+                                Toast toast = Toast.makeText(getApplicationContext(), "Se ha removido " + ordenTemporal.getPlatillos().get(item).getNombre() + " de la orden con el ID " + ordenId, Toast.LENGTH_SHORT);
                                 toast.show();
 
-                                //Pasamos ordenId de String a Integer para poder usarlo para buscar
-                                int idInt = Integer.parseInt(ordenId);
+                                listaOrdenes.get(posicionDelTemporal).getPlatillos().remove(item);
 
-                                for(int it=0; it<listaOrdenes.size() ;it++){
-
-                                    //Esto nomas para encontrar la orden con el id que nos paso la activity ModificarOrden,
-                                    // y meterle el platillo
-                                    if(listaOrdenes.get(it).getId() == idInt){
-                                        listaOrdenes.get(it).getPlatillos().add(listaTacos.get(item));
-                                        //Esto para que se acabe el for
-                                        it=listaOrdenes.size();
-                                    }
-
-                                }
+                                recargar();
 
                             }
                         }).setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -100,6 +105,7 @@ public class ModificarOrdenAnadirTActivity extends AppCompatActivity {
             }
 
         });//LongClickListener
+
     }//onCreate
 
     public void volver(View view){
@@ -110,6 +116,30 @@ public class ModificarOrdenAnadirTActivity extends AppCompatActivity {
         volver.putExtra("listaOrdenes", listaOrdenes);
         volver.putExtra("arrayMesas", arrayMesas);
         startActivity(volver);
+        this.finish();
+    }
+
+    public void volver(){
+        Intent volver = new Intent(this, ModificarOrdenActivity.class);
+        //Nos llevamos todos de paseo
+        volver.putExtra("listaTacos", listaTacos);
+        volver.putExtra("listaBebidas", listaBebidas);
+        volver.putExtra("listaOrdenes", listaOrdenes);
+        volver.putExtra("arrayMesas", arrayMesas);
+        startActivity(volver);
+        this.finish();
+    }
+
+    //Recargamos la pantalla
+    public void recargar(){
+        Intent elTaco = new Intent(this, ModificarOrdenQuitarTActivity.class);
+        //Nos llevamos todos de paseo
+        elTaco.putExtra("listaTacos", listaTacos);
+        elTaco.putExtra("listaBebidas", listaBebidas);
+        elTaco.putExtra("listaOrdenes", listaOrdenes);
+        elTaco.putExtra("arrayMesas", arrayMesas);
+        elTaco.putExtra("ordenId",ordenId);
+        startActivity(elTaco);
         this.finish();
     }
 

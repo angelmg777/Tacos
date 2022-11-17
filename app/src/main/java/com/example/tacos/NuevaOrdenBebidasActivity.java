@@ -156,11 +156,11 @@ public class NuevaOrdenBebidasActivity extends AppCompatActivity {
                 //Obtenemos el id de la mesa y guardamos la orden dentro de la respectiva mesa
                 String s = mSpinner.getSelectedItem().toString();
                 int mesaId = Integer.parseInt(s);
-                arrayMesas[mesaId].cuentas.add(nuevaOrden);
+                arrayMesas[mesaId-1].cuentas.add(nuevaOrden);
 
 
 
-                Toast.makeText(NuevaOrdenBebidasActivity.this, "Añadida la orden numero " + arrayMesas[mesaId].cuentas.size() + " de la mesa " + s + ", con el ID de " + nuevaOrden.getId(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(NuevaOrdenBebidasActivity.this, "Añadida la orden numero " + arrayMesas[mesaId-1].cuentas.size() + " de la mesa " + s + ", con el ID de " + nuevaOrden.getId(), Toast.LENGTH_SHORT).show();
 
                 dialogInterface.dismiss();
 
