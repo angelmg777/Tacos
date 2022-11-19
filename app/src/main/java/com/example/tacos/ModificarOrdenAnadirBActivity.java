@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class EliminarTacoActivity extends AppCompatActivity {
+public class ModificarOrdenAnadirBActivity extends AppCompatActivity {
 
     //Listas y arrays
     ArrayList<ClaseBebida> listaBebidas;
@@ -24,15 +24,16 @@ public class EliminarTacoActivity extends AppCompatActivity {
     ClaseMesa[] arrayMesas;
 
     //Globales de esta Activity
-    ListView lvLista;
-    Button btnVolver;
+    String ordenId;
+    ListView lvModificarAñadirB;
+    Button btnVolverModificarAñadirB;
     String[] elementos;
     ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eliminar_taco);
+        setContentView(R.layout.activity_modificar_orden_anadir_bactivity);
 
         //Listas y arrays
         listaTacos = (ArrayList<ClaseTaco>) getIntent().getSerializableExtra("listaTacos");
@@ -40,44 +41,51 @@ public class EliminarTacoActivity extends AppCompatActivity {
         listaOrdenes = (ArrayList<ClaseOrden>) getIntent().getSerializableExtra("listaOrdenes");
         arrayMesas = (ClaseMesa[]) getIntent().getSerializableExtra("arrayMesas");
 
-        //Configuracion de esta Activity
-        lvLista = (ListView) findViewById(R.id.lvListaTacos);
-        btnVolver = (Button) findViewById(R.id.btnVolverElTaco);
-
-        if(listaTacos.isEmpty()){
-            volver();
-        }
+        //Configuracion de esta activity
+        ordenId = (String) getIntent().getStringExtra("ordenId");
+        lvModificarAñadirB = (ListView) findViewById(R.id.lvModificarAñadirB);
+        btnVolverModificarAñadirB = (Button) findViewById(R.id.btnVolverModificarOrdenAñadirB);
 
         //Creo un array String donde junto el nombre del taco y su precio para que se vea mas presentable
-        elementos = new String[listaTacos.size()];
+        elementos = new String[listaBebidas.size()];
 
         for (int i = 0; i < elementos.length; i++) {
-            String precio = Integer.toString(listaTacos.get(i).getPrecio());
-            elementos[i] = listaTacos.get(i).getNombre() + " $" + precio;
+            String precio = Integer.toString(listaBebidas.get(i).getPrecio());
+            elementos[i] = listaBebidas.get(i).getNombre() + " $" + precio;
         }
 
         //Ponemos el adaptador (para que se muestren los elementos en el listview)
         adapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, elementos);
-        lvLista.setAdapter(adapter);
+        lvModificarAñadirB.setAdapter(adapter);
 
         //Hacemos el efecto chido de borrar con click
-        lvLista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        lvModificarAñadirB.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int item, long l) {
 
                 //Mostramos una alerta
-                new AlertDialog.Builder(EliminarTacoActivity.this)
-                        .setTitle("¿Remover " + listaTacos.get(item).getNombre() + " del menu?")
+                new AlertDialog.Builder(ModificarOrdenAnadirBActivity.this)
+                        .setTitle("¿Añadir " + listaBebidas.get(item).getNombre() + " a la orden con el ID " + ordenId + "?")
                         .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast toast = Toast.makeText(getApplicationContext(), "Se ha removido " + listaTacos.get(item).getNombre() + " del menu", Toast.LENGTH_SHORT);
+                                Toast toast = Toast.makeText(getApplicationContext(), "Se ha añadido " + listaBebidas.get(item).getNombre() + " a la orden con el ID " + ordenId, Toast.LENGTH_SHORT);
                                 toast.show();
 
-                                listaTacos.remove(item);
-                                adapter.notifyDataSetChanged();
+                                //Pasamos ordenId de String a Integer para poder usarlo para buscar
+                                int idInt = Integer.parseInt(ordenId);
 
-                                recargar();
+                                for(int it=0; it<listaOrdenes.size() ;it++){
+
+                                    //Esto nomas para encontrar la orden con el id que nos paso la activity ModificarOrden,
+                                    // y meterle el platillo
+                                    if(listaOrdenes.get(it).getId() == idInt){
+                                        listaOrdenes.get(it).getBebidas().add(listaBebidas.get(item));
+                                        //Esto para que se acabe el for
+                                        it=listaOrdenes.size();
+                                    }
+
+                                }
 
                             }
                         }).setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -94,39 +102,14 @@ public class EliminarTacoActivity extends AppCompatActivity {
 
     }//onCreate
 
-    //Funcion para el boton de volver
     public void volver(View view){
-        Intent volver = new Intent(this, MenuActivity.class);
+        Intent volver = new Intent(this, ModificarOrdenActivity.class);
         //Nos llevamos todos de paseo
         volver.putExtra("listaTacos", listaTacos);
         volver.putExtra("listaBebidas", listaBebidas);
         volver.putExtra("listaOrdenes", listaOrdenes);
         volver.putExtra("arrayMesas", arrayMesas);
         startActivity(volver);
-        this.finish();
-    }
-
-    //Funcion que usamos en este .java
-    public void volver(){
-        Intent volver = new Intent(this, MenuActivity.class);
-        //Nos llevamos todos de paseo
-        volver.putExtra("listaTacos", listaTacos);
-        volver.putExtra("listaBebidas", listaBebidas);
-        volver.putExtra("listaOrdenes", listaOrdenes);
-        volver.putExtra("arrayMesas", arrayMesas);
-        startActivity(volver);
-        this.finish();
-    }
-
-    //Recargamos la pantalla
-    public void recargar(){
-        Intent elTaco = new Intent(this, EliminarTacoActivity.class);
-        //Nos llevamos todos de paseo
-        elTaco.putExtra("listaTacos", listaTacos);
-        elTaco.putExtra("listaBebidas", listaBebidas);
-        elTaco.putExtra("listaOrdenes", listaOrdenes);
-        elTaco.putExtra("arrayMesas", arrayMesas);
-        startActivity(elTaco);
         this.finish();
     }
 

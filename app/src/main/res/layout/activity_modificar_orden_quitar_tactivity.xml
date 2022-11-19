@@ -4,23 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EliminarBebidaActivity">
+    tools:context=".ModificarOrdenQuitarTActivity">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="64dp"
-        android:text="Eliminar Bebida del menu"
+        android:layout_marginTop="27dp"
+        android:text="Quitar Taco(s)"
+        android:textAlignment="center"
+        android:textColor="#1325DF"
+        android:textSize="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnVolverElBebidas"
+        android:id="@+id/btnVolverModificarOrdenQuitarT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="36dp"
         android:onClick="volver"
         android:text="Volver"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,10 +32,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
-        android:id="@+id/lvListaBebidas"
-        android:layout_width="414dp"
-        android:layout_height="480dp"
-        android:layout_marginTop="30dp"
+        android:id="@+id/lvModificarQuitarT"
+        android:layout_width="410dp"
+        android:layout_height="515dp"
+        android:layout_marginTop="21dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

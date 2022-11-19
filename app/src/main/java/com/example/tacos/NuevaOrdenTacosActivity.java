@@ -10,12 +10,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class EliminarTacoActivity extends AppCompatActivity {
+public class NuevaOrdenTacosActivity extends AppCompatActivity {
 
     //Listas y arrays
     ArrayList<ClaseBebida> listaBebidas;
@@ -24,15 +25,16 @@ public class EliminarTacoActivity extends AppCompatActivity {
     ClaseMesa[] arrayMesas;
 
     //Globales de esta Activity
-    ListView lvLista;
-    Button btnVolver;
+    ArrayList<ClaseTaco> ordenTacos = new ArrayList<ClaseTaco>();
     String[] elementos;
+    Button btnCancelarNuevaOrdenTacos, btnAgregarNuevaOrdenTacos;
+    ListView lvAgregarTaco;
     ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eliminar_taco);
+        setContentView(R.layout.activity_nueva_orden_tacos);
 
         //Listas y arrays
         listaTacos = (ArrayList<ClaseTaco>) getIntent().getSerializableExtra("listaTacos");
@@ -40,13 +42,10 @@ public class EliminarTacoActivity extends AppCompatActivity {
         listaOrdenes = (ArrayList<ClaseOrden>) getIntent().getSerializableExtra("listaOrdenes");
         arrayMesas = (ClaseMesa[]) getIntent().getSerializableExtra("arrayMesas");
 
-        //Configuracion de esta Activity
-        lvLista = (ListView) findViewById(R.id.lvListaTacos);
-        btnVolver = (Button) findViewById(R.id.btnVolverElTaco);
-
-        if(listaTacos.isEmpty()){
-            volver();
-        }
+        //Configuracion de esta activity
+        btnAgregarNuevaOrdenTacos = (Button) findViewById(R.id.btnAgregarNuevaOrdenTacos);
+        btnCancelarNuevaOrdenTacos = (Button) findViewById(R.id.btnCancelarNuevaOrdenTacos);
+        lvAgregarTaco = (ListView) findViewById(R.id.lvAgregarTaco);
 
         //Creo un array String donde junto el nombre del taco y su precio para que se vea mas presentable
         elementos = new String[listaTacos.size()];
@@ -58,26 +57,25 @@ public class EliminarTacoActivity extends AppCompatActivity {
 
         //Ponemos el adaptador (para que se muestren los elementos en el listview)
         adapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, elementos);
-        lvLista.setAdapter(adapter);
+        lvAgregarTaco.setAdapter(adapter);
 
         //Hacemos el efecto chido de borrar con click
-        lvLista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        lvAgregarTaco.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int item, long l) {
 
                 //Mostramos una alerta
-                new AlertDialog.Builder(EliminarTacoActivity.this)
-                        .setTitle("¿Remover " + listaTacos.get(item).getNombre() + " del menu?")
+                new AlertDialog.Builder(NuevaOrdenTacosActivity.this)
+                        .setTitle("¿Agregar " + listaTacos.get(item).getNombre() + " a la orden?")
                         .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast toast = Toast.makeText(getApplicationContext(), "Se ha removido " + listaTacos.get(item).getNombre() + " del menu", Toast.LENGTH_SHORT);
+
+                                ClaseTaco objetoTaco = listaTacos.get(item);
+                                ordenTacos.add(objetoTaco);
+
+                                Toast toast = Toast.makeText(getApplicationContext(), "Se ha agregado " + listaTacos.get(item).getNombre() + " a la orden, van " + ordenTacos.size() + " tacos", Toast.LENGTH_SHORT);
                                 toast.show();
-
-                                listaTacos.remove(item);
-                                adapter.notifyDataSetChanged();
-
-                                recargar();
 
                             }
                         }).setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -92,41 +90,49 @@ public class EliminarTacoActivity extends AppCompatActivity {
 
         });//LongClickListener
 
-    }//onCreate
+    }
 
-    //Funcion para el boton de volver
-    public void volver(View view){
-        Intent volver = new Intent(this, MenuActivity.class);
+    public void cancelar(View view){
+        //Mostramos una alerta
+        new AlertDialog.Builder(NuevaOrdenTacosActivity.this)
+                .setTitle("¿Esta seguro de que quiere cancelar la orden?")
+                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        volver();
+                    }
+                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).create().show();
+    }//cancelar
+
+    //Mandamos all a la nueva orden tacos activity, incluido, lo mas imporante, ordenTacos
+    public void agregarTacos(View view){
+        Intent intent = new Intent(this, NuevaOrdenBebidasActivity.class);
         //Nos llevamos todos de paseo
-        volver.putExtra("listaTacos", listaTacos);
-        volver.putExtra("listaBebidas", listaBebidas);
-        volver.putExtra("listaOrdenes", listaOrdenes);
-        volver.putExtra("arrayMesas", arrayMesas);
-        startActivity(volver);
+        intent.putExtra("listaTacos", listaTacos);
+        intent.putExtra("ordenTacos", ordenTacos);
+        intent.putExtra("listaBebidas", listaBebidas);
+        intent.putExtra("listaOrdenes", listaOrdenes);
+        intent.putExtra("arrayMesas", arrayMesas);
+        startActivity(intent);
         this.finish();
     }
 
-    //Funcion que usamos en este .java
+
+    //Creamos la clase de volver fuera de la clase cancelar porque sino nos marca error al poner el codigo
+    //dentro de la opcion positiva
     public void volver(){
-        Intent volver = new Intent(this, MenuActivity.class);
+        Intent volver = new Intent(this, AdministrarOrdenActivity.class);
         //Nos llevamos todos de paseo
         volver.putExtra("listaTacos", listaTacos);
         volver.putExtra("listaBebidas", listaBebidas);
         volver.putExtra("listaOrdenes", listaOrdenes);
         volver.putExtra("arrayMesas", arrayMesas);
         startActivity(volver);
-        this.finish();
-    }
-
-    //Recargamos la pantalla
-    public void recargar(){
-        Intent elTaco = new Intent(this, EliminarTacoActivity.class);
-        //Nos llevamos todos de paseo
-        elTaco.putExtra("listaTacos", listaTacos);
-        elTaco.putExtra("listaBebidas", listaBebidas);
-        elTaco.putExtra("listaOrdenes", listaOrdenes);
-        elTaco.putExtra("arrayMesas", arrayMesas);
-        startActivity(elTaco);
         this.finish();
     }
 

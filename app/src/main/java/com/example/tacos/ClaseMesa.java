@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class ClaseMesa implements Serializable {
     public int id;
-    public ArrayList<ClaseOrden> cuentas;
+    public ArrayList<ClaseOrden> cuentas = new ArrayList<ClaseOrden>();
 
     public ClaseMesa() {
         this.id = 0;

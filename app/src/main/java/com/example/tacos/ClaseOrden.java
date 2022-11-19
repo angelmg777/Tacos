@@ -4,17 +4,20 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ClaseOrden implements Serializable {
+    int id;
     public ArrayList<ClaseTaco> platillos;
     public ArrayList<ClaseBebida> bebidas;
 
     public ClaseOrden() {
         this.platillos = null;
         this.bebidas = null;
+        id=0;
     }
 
     public ClaseOrden(ArrayList<ClaseTaco> platillos, ArrayList<ClaseBebida> bebidas) {
         this.platillos = platillos;
         this.bebidas = bebidas;
+        id=0;
     }
 
     public ArrayList<ClaseTaco> getPlatillos() {
@@ -31,5 +34,13 @@ public class ClaseOrden implements Serializable {
 
     public void setBebidas(ArrayList<ClaseBebida> bebidas) {
         this.bebidas = bebidas;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

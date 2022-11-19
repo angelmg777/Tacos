@@ -25,7 +25,7 @@ public class EliminarBebidaActivity extends AppCompatActivity {
 
     //Globales de esta Activity
     ListView lvLista;
-    Button btnVolver, btnRecargar;
+    Button btnVolver;
     String[] elementos;
     ArrayAdapter<String> adapter;
 
@@ -43,7 +43,10 @@ public class EliminarBebidaActivity extends AppCompatActivity {
         //Configuracion de esta Activity
         lvLista = (ListView) findViewById(R.id.lvListaBebidas);
         btnVolver = (Button) findViewById(R.id.btnVolverElBebidas);
-        btnRecargar = (Button) findViewById(R.id.btnRecargarBebidas);
+
+        if(listaBebidas.isEmpty()){
+            volver();
+        }
 
         //Creo un array String donde junto el nombre del taco y su precio para que se vea mas presentable
         elementos = new String[listaBebidas.size()];
@@ -68,13 +71,13 @@ public class EliminarBebidaActivity extends AppCompatActivity {
                         .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast toast = Toast.makeText(getApplicationContext(), "Se ha removido " + listaBebidas.get(item).getNombre() + " del menu, por favor, recargue la pantalla", Toast.LENGTH_SHORT);
+                                Toast toast = Toast.makeText(getApplicationContext(), "Se ha removido " + listaBebidas.get(item).getNombre() + " del menu", Toast.LENGTH_SHORT);
                                 toast.show();
 
                                 listaBebidas.remove(item);
                                 adapter.notifyDataSetChanged();
 
-                                lvLista.setEnabled(false);
+                                recargar();
 
                             }
                         }).setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -102,15 +105,27 @@ public class EliminarBebidaActivity extends AppCompatActivity {
         this.finish();
     }
 
-    //Recargamos la pantalla
-    public void recargar(View view){
-        Intent elBebida = new Intent(this, EliminarBebidaActivity.class);
+    //Funcion que usamos en este .java
+    public void volver(){
+        Intent volver = new Intent(this, MenuActivity.class);
         //Nos llevamos todos de paseo
-        elBebida.putExtra("listaTacos", listaTacos);
-        elBebida.putExtra("listaBebidas", listaBebidas);
-        elBebida.putExtra("listaOrdenes", listaOrdenes);
-        elBebida.putExtra("arrayMesas", arrayMesas);
-        startActivity(elBebida);
+        volver.putExtra("listaTacos", listaTacos);
+        volver.putExtra("listaBebidas", listaBebidas);
+        volver.putExtra("listaOrdenes", listaOrdenes);
+        volver.putExtra("arrayMesas", arrayMesas);
+        startActivity(volver);
+        this.finish();
+    }
+
+    //Recargamos la pantalla
+    public void recargar(){
+        Intent elTaco = new Intent(this, EliminarBebidaActivity.class);
+        //Nos llevamos todos de paseo
+        elTaco.putExtra("listaTacos", listaTacos);
+        elTaco.putExtra("listaBebidas", listaBebidas);
+        elTaco.putExtra("listaOrdenes", listaOrdenes);
+        elTaco.putExtra("arrayMesas", arrayMesas);
+        startActivity(elTaco);
         this.finish();
     }
 
