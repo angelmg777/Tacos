@@ -77,6 +77,14 @@ public class EliminarTacoActivity extends AppCompatActivity {
                                 listaTacos.remove(item);
                                 adapter.notifyDataSetChanged();
 
+                                //Guardado en memoria
+                                String ser = SerializableObject.objectToString(listaTacos);
+                                if (ser != null && !ser.equalsIgnoreCase("")) {
+                                    SerializableObject.WriteSettings(EliminarTacoActivity.this, ser, "myobject.dat");
+                                } else {
+                                    SerializableObject.WriteSettings(EliminarTacoActivity.this, "", "myobject.dat");
+                                }
+
                                 recargar();
 
                             }

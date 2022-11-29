@@ -71,7 +71,7 @@ public class AgregarBebidaActivity extends AppCompatActivity {
         edtNombreBebida.setText("");
         edtPrecioBebida.setText("");
 
-        //Pureba
+        //Guardado en memoria
         String ser = SerializableObject.objectToString(listaBebidas);
         if (ser != null && !ser.equalsIgnoreCase("")) {
             SerializableObject.WriteSettings(AgregarBebidaActivity.this, ser, "myobject2.dat");

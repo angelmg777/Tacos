@@ -77,6 +77,14 @@ public class EliminarBebidaActivity extends AppCompatActivity {
                                 listaBebidas.remove(item);
                                 adapter.notifyDataSetChanged();
 
+                                //Guardado en memoria
+                                String ser = SerializableObject.objectToString(listaBebidas);
+                                if (ser != null && !ser.equalsIgnoreCase("")) {
+                                    SerializableObject.WriteSettings(EliminarBebidaActivity.this, ser, "myobject2.dat");
+                                } else {
+                                    SerializableObject.WriteSettings(EliminarBebidaActivity.this, "", "myobject2.dat");
+                                }
+
                                 recargar();
 
                             }

@@ -67,7 +67,7 @@ public class AgregarTacoActivity extends AppCompatActivity {
         ClaseTaco nuevoTaco = new ClaseTaco(nombre, precio);
         listaTacos.add(nuevoTaco);
 
-        //Prueba
+        //Guardado en memoria
         String ser = SerializableObject.objectToString(listaTacos);
         if (ser != null && !ser.equalsIgnoreCase("")) {
             SerializableObject.WriteSettings(AgregarTacoActivity.this, ser, "myobject.dat");
