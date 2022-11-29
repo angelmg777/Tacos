@@ -71,6 +71,14 @@ public class AgregarBebidaActivity extends AppCompatActivity {
         edtNombreBebida.setText("");
         edtPrecioBebida.setText("");
 
+        //Pureba
+        String ser = SerializableObject.objectToString(listaBebidas);
+        if (ser != null && !ser.equalsIgnoreCase("")) {
+            SerializableObject.WriteSettings(AgregarBebidaActivity.this, ser, "myobject2.dat");
+        } else {
+            SerializableObject.WriteSettings(AgregarBebidaActivity.this, "", "myobject2.dat");
+        }
+
         Toast toast = Toast.makeText(getApplicationContext(), nombre + " ha sido agregado al menu", Toast.LENGTH_SHORT);
         toast.show();
     }
