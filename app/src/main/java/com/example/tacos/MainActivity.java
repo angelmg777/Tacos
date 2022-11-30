@@ -27,21 +27,39 @@ public class MainActivity extends AppCompatActivity {
 
         //Tacos por defecto
         ArrayList<ClaseTaco> listaTacos = new ArrayList<ClaseTaco>();
-        ClaseTaco tacoAsada = new ClaseTaco("Taco de asada", 20);
+        /*ClaseTaco tacoAsada = new ClaseTaco("Taco de asada", 20);
         ClaseTaco tacoChorizo = new ClaseTaco("Taco de chorizo", 30);
         ClaseTaco tacoPastor = new ClaseTaco("Taco de pastor", 40);
         listaTacos.add(tacoAsada);
         listaTacos.add(tacoChorizo);
-        listaTacos.add(tacoPastor);
+        listaTacos.add(tacoPastor);*/
+        String ser = SerializableObject.ReadSettings(MainActivity.this, "myobject.dat");
+        if (ser != null && !ser.equalsIgnoreCase("")) {
+            Object obj = SerializableObject.stringToObject(ser);
+            // Then cast it to your object and
+            if (obj instanceof ArrayList) {
+                // Do something
+                listaTacos = (ArrayList<ClaseTaco>)obj;
+            }
+        }
 
         //Bebidas por defecto
         ArrayList<ClaseBebida> listaBebidas = new ArrayList<ClaseBebida>();
-        ClaseBebida bebidaAguaFrescaChica = new ClaseBebida("Agua Fresca Chica", 20);
+        /*ClaseBebida bebidaAguaFrescaChica = new ClaseBebida("Agua Fresca Chica", 20);
         ClaseBebida bebidaRefresco = new ClaseBebida("Refresco", 30);
         ClaseBebida bebidaAguaFrescaGrande = new ClaseBebida("Agua Fresca Grande", 40);
         listaBebidas.add(bebidaAguaFrescaChica);
         listaBebidas.add(bebidaRefresco);
-        listaBebidas.add(bebidaAguaFrescaGrande);
+        listaBebidas.add(bebidaAguaFrescaGrande);*/
+        String serB = SerializableObject.ReadSettings(MainActivity.this, "myobject2.dat");
+        if (serB != null && !serB.equalsIgnoreCase("")) {
+            Object obj = SerializableObject.stringToObject(serB);
+            // Then cast it to your object and
+            if (obj instanceof ArrayList) {
+                // Do something
+                listaBebidas = (ArrayList<ClaseBebida>)obj;
+            }
+        }
 
         //Inicializacion de lista de ordenes
         ArrayList<ClaseOrden> listaOrdenes = new ArrayList<ClaseOrden>();
