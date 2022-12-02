@@ -3,29 +3,35 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_administrar_orden.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_agregar_bebida.xml" value="0.2" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_agregar_taco.xml" value="0.25" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_eliminar_bebida.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_eliminar_taco.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_login.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_menu.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_modificar_orden.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_modificar_orden_anadir_bactivity.xml" value="0.264" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_modificar_orden_anadir_tactivity.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_modificar_orden_quitar_bactivity.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_modificar_orden_quitar_tactivity.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_nueva_orden.xml" value="0.2" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_nueva_orden_bebidas.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/activity_nueva_orden_tacos.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/layout/dialogo_spinner.xml" value="0.17247267759562843" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/Tacos/app/src/main/res/menu/menu_principal.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2815" />
+        <entry key="app/src/main/res/drawable/ic_edit_square_fill0_wght400_grad0_opsz48.xml" value="0.345" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2815" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.27787851314596557" />
+        <entry key="app/src/main/res/layout/activity_administrar_orden.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/activity_agregar_bebida.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/activity_agregar_taco.xml" value="0.29628046173578454" />
+        <entry key="app/src/main/res/layout/activity_detalle_orden.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/activity_eliminar_bebida.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/activity_eliminar_taco.xml" value="0.29628046173578454" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.24155622060709706" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2776268115942029" />
-        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.27787851314596557" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/activity_mesa_total.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/activity_mesas.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/activity_modificar_orden.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/activity_modificar_orden_anadir_bactivity.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/activity_modificar_orden_anadir_tactivity.xml" value="0.29628046173578454" />
+        <entry key="app/src/main/res/layout/activity_modificar_orden_quitar_bactivity.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/activity_modificar_orden_quitar_tactivity.xml" value="0.29628046173578454" />
+        <entry key="app/src/main/res/layout/activity_mostrar_ordenes.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/activity_nueva_orden_bebidas.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/activity_nueva_orden_tacos.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/activity_orden_detalle.xml" value="0.2869446962828649" />
+        <entry key="app/src/main/res/layout/dialogo_spinner.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/layout/listaordenes.xml" value="0.2764749012425598" />
+        <entry key="app/src/main/res/layout/listelements.xml" value="0.29243266353142366" />
+        <entry key="app/src/main/res/menu/menu_principal.xml" value="0.24155622060709706" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.298" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.298" />
       </map>
     </option>
   </component>

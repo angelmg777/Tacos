@@ -14,6 +14,7 @@ public class ClaseUsuario {
         this.correo = correo;
         this.contraseña = contraseña;
         this.registrado = true;
+
     }
 
     public String getCorreo() {
@@ -39,4 +40,6 @@ public class ClaseUsuario {
     public void setRegistrado(boolean registrado) {
         this.registrado = registrado;
     }
+
+
 }

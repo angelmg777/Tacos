@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ClaseOrden implements Serializable {
-    int id;
+    public int id;
+    public String color;
     public ArrayList<ClaseTaco> platillos;
     public ArrayList<ClaseBebida> bebidas;
 
@@ -42,5 +43,13 @@ public class ClaseOrden implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

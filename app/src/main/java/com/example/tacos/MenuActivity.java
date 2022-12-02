@@ -129,25 +129,31 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void mesas(View view){
-        /*Intent intent = new Intent(this, MesasActivity.class);
+        Intent intent = new Intent(this, MesasActivity.class);
         //Nos llevamos todos de paseo
         intent.putExtra("listaTacos", listaTacos);
         intent.putExtra("listaBebidas", listaBebidas);
         intent.putExtra("listaOrdenes", listaOrdenes);
         intent.putExtra("arrayMesas", arrayMesas);
         startActivity(intent);
-        this.finish();*/
+        this.finish();
     }
 
     public void mostrarOrdenes(View view){
-        /*Intent intent = new Intent(this, OrdenesActivity.class);
-        //Nos llevamos todos de paseo
-        intent.putExtra("listaTacos", listaTacos);
-        intent.putExtra("listaBebidas", listaBebidas);
-        intent.putExtra("listaOrdenes", listaOrdenes);
-        intent.putExtra("arrayMesas", arrayMesas);
-        startActivity(intent);
-        this.finish();*/
+
+        if(listaOrdenes.isEmpty()){
+            Toast toast = Toast.makeText(getApplicationContext(), "¡No hay Ordenes!", Toast.LENGTH_SHORT);
+            toast.show();
+        }else {
+            Intent intent = new Intent(this, MostrarOrdenesActivity.class);
+            //Nos llevamos todos de paseo
+            intent.putExtra("listaTacos", listaTacos);
+            intent.putExtra("listaBebidas", listaBebidas);
+            intent.putExtra("listaOrdenes", listaOrdenes);
+            intent.putExtra("arrayMesas", arrayMesas);
+            startActivity(intent);
+            this.finish();
+        }
     }
 
     public void administrarOrdenes(View view){
