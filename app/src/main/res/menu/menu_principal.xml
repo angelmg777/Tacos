@@ -2,21 +2,28 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <item
         android:id="@+id/itemAgTaco"
-        android:title="Agregar Taco" />
+        android:title="Agregar Taco"
+        android:icon="@drawable/simbolomas" />
+
+
     <item
         android:id="@+id/itemElTaco"
+        android:icon="@drawable/simbolomenos"
         android:title="Eliminar Taco" />
     <item
         android:id="@+id/itemAgBebida"
+        android:icon="@drawable/simbolomas"
         android:title="Agregar Bebida" />
     <item
         android:id="@+id/itemElBebida"
+        android:icon="@drawable/simbolomenos"
         android:title="Eliminar Bebida" />
     <item
         android:id="@+id/itemLogout"
-        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:icon="@drawable/cerrarsesion"
         android:title="Cerrar sesión"
         app:showAsAction="ifRoom" />
 </menu>

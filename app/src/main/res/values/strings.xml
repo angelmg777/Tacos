@@ -1,11 +1,50 @@
 <resources>
+
     <string name="app_name">Tacos</string>
     <string name="loginTitle">Inicio de Sesion</string>
     <string name="user">Ingrese el usuario</string>
     <string name="password">Ingrese la contraseña</string>
     <string name="ingresar">Ingresar</string>
     <string name="salir">Salir</string>
-    <string name="menu">Menu Tacos Bala</string>
 
+    <string name="menu">MENÚ TACOS BALA</string>
+    <string name="MostrarOrdenes">Mostrar las ordenes</string>
+    <string name="AdministrarOrdenes">Administrar ordenes</string>
+    <string name="AdministrarMesas">Mesas</string>
+
+    <string name="AdministrarOrden">ADMINISTRAR ORDEN</string>
+    <string name="AgregarOrden">Agregar una orden</string>
+    <string name="ModificarOrden">Modificar una orden</string>
+
+    <string name="AgregarBebidasAlMenu">AGREGAR BEBIDAS AL MENÚ</string>
+    <string name="NombredelaBebida">Nombre de la bebida:</string>
+    <string name="PreciodelaBebida">Precio de la bebida:</string>
+
+    <string name="AgregarTacos">AGREGAR TACOS AL MENÚ</string>
+    <string name="NombreDelTaco">Nombre del taco:</string>
+    <string name="PrecioDelTaco">Precio del taco:</string>
+
+    <string name="EliminarBebida">ELIMINAR BEBIDA DEL MENÚ</string>
+
+    <string name="EliminarTaco">ELIMINAR TACO DEL MENÚ</string>
+
+    <string name="TotalDeLaMesa">TOTAL DE LA MESA</string>
+
+    <string name="Mesas">MESAS</string>
+
+    <string name="ModificarOrdenA">MODIFICAR ORDEN</string>
+    <string name="IDOrden">ID de la orden:</string>
+
+    <string name="AñadirBebidas">AÑADIR BEBIDA(S)</string>
+    <string name="AñadirTacos">AÑADIR TACO(S)</string>
+    <string name="QuitarBebidas">QUITAR BEBIDA(S)</string>
+    <string name="QuitarTacos">QUITAR TACO(S)</string>
+
+    <string name="MostrarOrdenesA">MOSTRAR ORDENES</string>
+    <string name="NuevaOrdenBebidas">NUEVA ORDEN</string>
+    <string name="Bebidas">Bebidas:</string>
+    <string name="Tacos">Tacos:</string>
+
+    <string name="DetalleOrden">DETALLE ORDEN</string>
 
 </resources>

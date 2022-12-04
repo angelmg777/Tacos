@@ -4,61 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondoMenu"
     tools:context=".AgregarBebidaActivity">
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="100dp"
-        android:text="Agregar Bebidas al menu"
+        android:hint="@string/AgregarBebidasAlMenu"
+        android:textAlignment="center"
+        android:textColor="@color/VerdeTitulos"
+        android:textColorHint="@color/VerdeTitulos"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025" />
 
     <Button
         android:id="@+id/btnVolverAgBebida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginBottom="212dp"
+        android:layout_marginBottom="92dp"
         android:onClick="volver"
         android:text="Volver"
+        android:textSize="20sp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAgregarBebida"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/edtNombreBebida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="271dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="68dp"
         android:ems="10"
-        android:hint="Nombre de la bebida:"
+        android:hint="@string/NombredelaBebida"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnAgregarBebida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="80dp"
         android:onClick="agregar"
         android:text="Agregar Bebida"
-        app:layout_constraintBottom_toTopOf="@+id/btnVolverAgBebida"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPrecioBebida"
+        app:layout_constraintVertical_bias="0.201" />
 
     <EditText
         android:id="@+id/edtPrecioBebida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="53dp"
+        android:layout_width="271dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="Precio de la bebida:"
         android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtNombreBebida" />
+        app:layout_constraintTop_toBottomOf="@+id/edtNombreBebida"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

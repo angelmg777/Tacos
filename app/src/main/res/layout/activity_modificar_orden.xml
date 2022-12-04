@@ -4,96 +4,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/administrarordenes"
     tools:context=".ModificarOrdenActivity">
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:text="Modificar Orden"
+        android:hint="@string/ModificarOrdenA"
         android:textAlignment="center"
         android:textColor="#1325DF"
-        android:textSize="45dp"
+        android:textColorHint="@color/VerdeTitulos"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="ID de la orden"
+        android:hint="@string/IDOrden"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
         android:id="@+id/spnModificarOrdenId"
-        android:layout_width="397dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="322dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintVertical_bias="0.005" />
 
     <Button
         android:id="@+id/btnModificarAñadirT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_width="135dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="52dp"
         android:onClick="modificarOrdenAñadirT"
         android:text="Añadir Taco(s)"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/btnModificarQuitarT"
         app:layout_constraintEnd_toStartOf="@+id/btnModificarAñadirB"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spnModificarOrdenId" />
+        app:layout_constraintTop_toBottomOf="@+id/spnModificarOrdenId"
+        app:layout_constraintVertical_bias="0.054" />
 
     <Button
         android:id="@+id/btnModificarAñadirB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="135dp"
+        android:layout_height="75dp"
         android:layout_marginTop="55dp"
         android:onClick="modificarOrdenAñadirB"
         android:text="Añadir Bebida(s)"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/btnModificarQuitarB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnModificarAñadirT"
-        app:layout_constraintTop_toBottomOf="@+id/spnModificarOrdenId" />
+        app:layout_constraintTop_toBottomOf="@+id/spnModificarOrdenId"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnModificarQuitarT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_width="135dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="380dp"
         android:onClick="modificarOrdenQuitarT"
         android:text="Quitar Taco(s)"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/btnEliminarOrden"
         app:layout_constraintEnd_toStartOf="@+id/btnModificarQuitarB"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnModificarAñadirT" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnModificarQuitarB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_width="135dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="380dp"
         android:onClick="modificarOrdenQuitarB"
         android:text="Quitar Bebida(s)"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/btnEliminarOrden"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnModificarQuitarT"
-        app:layout_constraintTop_toBottomOf="@+id/btnModificarAñadirB" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnEliminarOrden"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="61dp"
         android:onClick="eliminarOrden"
         android:text="Eliminar Orden"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnModificarQuitarT" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.781" />
 
     <Button
         android:id="@+id/btnVolverMenuModificar"
@@ -102,7 +128,11 @@
         android:layout_marginBottom="64dp"
         android:onClick="volver"
         android:text="volver"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEliminarOrden"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
