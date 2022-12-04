@@ -2,6 +2,8 @@ package com.example.tacos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -112,7 +114,22 @@ public class MenuActivity extends AppCompatActivity {
                 break;
 
             case R.id.itemLogout:
-                cerrarSesion();
+                new AlertDialog.Builder(MenuActivity.this)
+                        .setTitle("¿Esta seguro que quiere cerrar sesion?")
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                cerrarSesion();
+
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }).create().show();
+
                 break;
 
         }//switch

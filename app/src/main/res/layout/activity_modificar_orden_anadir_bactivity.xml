@@ -4,40 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/administrarordenes"
     tools:context=".ModificarOrdenAnadirBActivity">
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:text="Añadir Bebida(s)"
+        android:hint="@string/AñadirBebidas"
         android:textAlignment="center"
-        android:textColor="#1325DF"
-        android:textSize="45dp"
+        android:textColor="@color/VerdeTitulos"
+        android:textColorHint="@color/VerdeTitulos"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
     <Button
         android:id="@+id/btnVolverModificarOrdenAñadirB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
         android:onClick="volver"
         android:text="Volver"
+        android:textSize="20sp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944" />
 
     <ListView
         android:id="@+id/lvModificarAñadirB"
-        android:layout_width="409dp"
-        android:layout_height="499dp"
+        android:layout_width="364dp"
+        android:layout_height="488dp"
         android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnVolverModificarOrdenAñadirB"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:layout_constraintVertical_bias="0.15" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/administrarordenes"
     tools:context=".NuevaOrdenTacosActivity">
 
     <TextView
@@ -11,55 +12,75 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
-        android:text="Nueva Orden"
+        android:hint="@string/NuevaOrdenBebidas"
         android:textAlignment="center"
         android:textColor="#1325DF"
-        android:textSize="45dp"
+        android:textColorHint="@color/VerdeTitulos"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-
-        android:text="Tacos:"
+        android:hint="@string/Tacos"
+        android:textColorHint="@color/black"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
 
     <Button
         android:id="@+id/btnAgregarNuevaOrdenTacos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="61dp"
         android:layout_marginBottom="69dp"
         android:onClick="agregarTacos"
         android:text="Agregar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lvAgregarTaco"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnCancelarNuevaOrdenTacos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="57dp"
+        android:layout_marginStart="36dp"
         android:layout_marginBottom="69dp"
         android:onClick="cancelar"
         android:text="Cancelar"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/btnAgregarNuevaOrdenTacos"
+        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lvAgregarTaco"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ListView
         android:id="@+id/lvAgregarTaco"
-        android:layout_width="410dp"
-        android:layout_height="347dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="31dp"
+        android:layout_width="338dp"
+        android:layout_height="454dp"
+        android:layout_marginBottom="116dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.258" />
 </androidx.constraintlayout.widget.ConstraintLayout>

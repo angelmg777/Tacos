@@ -19,7 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="6dp">
+            android:padding="6dp"
+            android:background="#C92A9F2F">
 
             <ImageView
                 android:id="@+id/iconImageView"
@@ -42,6 +43,7 @@
                 android:layout_marginStart="85dp"
                 android:layout_marginTop="21dp"
                 android:text="Orden"
+                android:textColor="@color/black"
                 android:textAlignment="center"
                 android:textSize="28dp" />
 

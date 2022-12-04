@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mostrarordenes"
     tools:context=".MostrarOrdenesActivity">
 
     <Button
@@ -14,6 +15,9 @@
         android:layout_marginBottom="36dp"
         android:onClick="volver"
         android:text="Volver"
+        android:textSize="20sp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,11 +27,18 @@
         android:id="@+id/textView18"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mostrar Ordenes"
+        android:hint="@string/MostrarOrdenesA"
+        android:textColorHint="@color/VerdeTitulos"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="#1325DF"
-        android:textSize="45dp"
-        tools:layout_editor_absoluteY="27dp" />
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewOrdenes"

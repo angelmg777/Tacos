@@ -4,52 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/administrarordenes"
     tools:context=".AdministrarOrdenActivity">
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:text="Administrar Orden"
+        android:hint="@string/AdministrarOrden"
         android:textAlignment="center"
-        android:textColor="#1325DF"
-        android:textSize="45dp"
+        android:textColorHint="@color/VerdeTitulos"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025" />
 
     <ImageButton
         android:id="@+id/imbNuevaOrden"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="99dp"
+        android:layout_width="165dp"
+        android:layout_height="163dp"
+        android:layout_marginTop="64dp"
         android:onClick="nuevaOrden"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@drawable/nuevotaco"/>
 
     <ImageButton
         android:id="@+id/imbModificarOrden"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="106dp"
+        android:layout_width="155dp"
+        android:layout_height="156dp"
+        android:layout_marginTop="52dp"
+        android:contentDescription="@string/AdministrarOrden"
         android:onClick="modificarOrden"
         app:layout_constraintBottom_toTopOf="@+id/btnVolverAdministrarOrdenes"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/imbNuevaOrden"
+        app:layout_constraintVertical_bias="0.158"
+        tools:srcCompat="@drawable/modificartacoo" />
 
     <Button
         android:id="@+id/btnVolverAdministrarOrdenes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="73dp"
+        android:layout_width="164dp"
+        android:layout_height="57dp"
         android:onClick="volver"
         android:text="Volver"
+        android:textSize="20sp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.918"
+        />
+
+    <TextView
+        android:id="@+id/AGREGARORDEN"
+        android:layout_width="257dp"
+        android:layout_height="45dp"
+        android:hint="@string/AgregarOrden"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imbNuevaOrden"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="252dp"
+        android:layout_height="47dp"
+        android:hint="@string/ModificarOrden"
+        android:textAlignment="center"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imbModificarOrden"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imbNuevaOrden"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
