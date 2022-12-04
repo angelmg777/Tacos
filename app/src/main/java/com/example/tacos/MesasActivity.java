@@ -45,7 +45,7 @@ public class MesasActivity extends AppCompatActivity {
 
 
         //Ponemos el adaptador (para que se muestren los elementos en el listview)
-        adapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,mesas);
+        adapter = new ArrayAdapter<String>(this, R.layout.listperzonalizada,mesas);
         LVMesas.setAdapter(adapter);
 
 

@@ -3,27 +3,46 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
+
     <item
-        android:id="@+id/itemAgTaco"
+        android:id="@+id/itemMenu"
         android:title="Agregar Taco"
-        android:icon="@drawable/simbolomas" />
+        android:icon="@drawable/ic_baseline_menu_24"
+        app:showAsAction="always">
+
+        <menu>
 
 
-    <item
-        android:id="@+id/itemElTaco"
-        android:icon="@drawable/simbolomenos"
-        android:title="Eliminar Taco" />
-    <item
-        android:id="@+id/itemAgBebida"
-        android:icon="@drawable/simbolomas"
-        android:title="Agregar Bebida" />
-    <item
-        android:id="@+id/itemElBebida"
-        android:icon="@drawable/simbolomenos"
-        android:title="Eliminar Bebida" />
-    <item
-        android:id="@+id/itemLogout"
-        android:icon="@drawable/cerrarsesion"
-        android:title="Cerrar sesión"
-        app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/itemAgTaco"
+                android:title="Agregar Taco"
+                android:icon="@drawable/ic_baseline_add_24"
+                />
+
+            <item
+                android:id="@+id/itemElTaco"
+                android:title="Eliminar Taco"
+                android:icon="@drawable/ic_baseline_clear_24"
+
+                />
+            <item
+                android:id="@+id/itemAgBebida"
+                android:icon="@drawable/ic_baseline_add_24"
+                android:title="Agregar Bebida" />
+            <item
+                android:id="@+id/itemElBebida"
+                android:title="Eliminar Bebida"
+                android:icon="@drawable/ic_baseline_clear_24"
+                />
+            <item
+                android:id="@+id/itemLogout"
+                android:icon="@drawable/ic_baseline_login_24"
+                android:title="Cerrar sesión"
+                 />
+        </menu>
+    </item>
+
+
+
+
 </menu>

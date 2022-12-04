@@ -59,7 +59,7 @@ public class ModificarOrdenActivity extends AppCompatActivity {
             arrayIds[i] = idString;
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, arrayIds);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.dialogo_spinner, arrayIds);
         spnModificarOrdenId.setAdapter(adapter);
     } //onCreate
 

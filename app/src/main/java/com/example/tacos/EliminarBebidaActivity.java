@@ -57,7 +57,7 @@ public class EliminarBebidaActivity extends AppCompatActivity {
         }
 
         //Ponemos el adaptador (para que se muestren los elementos en el listview)
-        adapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, elementos);
+        adapter = new ArrayAdapter<String>(this, R.layout.listperzonalizada, elementos);
         lvLista.setAdapter(adapter);
 
         //Hacemos el efecto chido de borrar con click

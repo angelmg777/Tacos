@@ -46,7 +46,7 @@
         android:layout_height="467dp"
         android:layout_marginTop="50dp"
         android:textAlignment="center"
-
+        android:background="@color/fondomesasDetalle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"

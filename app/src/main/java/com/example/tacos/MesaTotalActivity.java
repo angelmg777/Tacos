@@ -59,20 +59,24 @@ public class MesaTotalActivity extends AppCompatActivity {
             String res = "";
             int total = 0;
 
+            res+="\n-------Tacos Bala-------\n";
+            res+="Cuenta total de la Mesa   "+(item+1)+"\n\n";
+
             for (int i = 0; i < arrayMesas[item].cuentas.size(); i++) {
                 for (int j = 0; j < arrayMesas[item].cuentas.get(i).getPlatillos().size(); j++) {
                     total = total + arrayMesas[item].cuentas.get(i).getPlatillos().get(j).getPrecio();
-                    res += (arrayMesas[item].cuentas.get(i).getPlatillos().get(j).getNombre() + " $" + arrayMesas[item].cuentas.get(i).getPlatillos().get(j).getPrecio() + "\n");
+                    res += (arrayMesas[item].cuentas.get(i).getPlatillos().get(j).getNombre() + "          $" + arrayMesas[item].cuentas.get(i).getPlatillos().get(j).getPrecio() + "\n");
                 }
                 for (int k = 0; k < arrayMesas[item].cuentas.get(i).getBebidas().size(); k++) {
                     total = total + arrayMesas[item].cuentas.get(i).getBebidas().get(k).getPrecio();
-                    res += (arrayMesas[item].cuentas.get(i).getBebidas().get(k).getNombre() + " $" + arrayMesas[item].cuentas.get(i).getBebidas().get(k).getPrecio() + "\n");
+                    res += (arrayMesas[item].cuentas.get(i).getBebidas().get(k).getNombre() + "           $" + arrayMesas[item].cuentas.get(i).getBebidas().get(k).getPrecio() + "\n");
                 }
             }
 
             double propina = total * 0.15;
-            res += ("\n\nTotal a Pagar: $" + total);
-            res += ("\nPropina sugerida 15%= $" + propina);
+            res += ("\nTotal a Pagar:       $" + total);
+            res += ("\nPropina sugerida 15%=   $" + propina);
+
 
 
             totalMesa.setText(res);

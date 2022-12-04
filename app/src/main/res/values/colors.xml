@@ -14,7 +14,12 @@
 
     <color name="VerdeTitulos">#E13600</color>
     <color name="fondoMenu">#70CDFA</color>
+    <color name="ListMenus">#B7E4FA</color>
     <color name="fondomesas">#F7BF6E</color>
+    <color name="fondomesasDetalle">#F8D39D</color>
     <color name="administrarordenes">#C6C6C6</color>
+    <color name="administrarordenesFond">#B1B1B1</color>
     <color name="mostrarordenes">#8FB168</color>
+    <color name="mostrarordenesfond">#B9DC91</color>
+
 </resources>

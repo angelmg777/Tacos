@@ -19,7 +19,7 @@ public class OrdenDetalleActivity extends AppCompatActivity {
     ArrayList<ClaseTaco> listaTacos;
     ClaseMesa[] arrayMesas;
     ClaseOrden element;
-    int item;
+    int item,ID;
 
     TextView orden;
 
@@ -37,19 +37,22 @@ public class OrdenDetalleActivity extends AppCompatActivity {
 
         item = element.getId()-1;
 
-
+        ID = element.getId();
 
 
         String res = "";
 
 
-        for (int j = 0; j < listaOrdenes.get(item).getPlatillos().size(); j++) {
-
-            res += ( listaOrdenes.get(item).getPlatillos().get(j).getNombre() + " $" + listaOrdenes.get(item).getPlatillos().get(j).getPrecio() + "\n");
-        }
-
-        for (int j = 0; j < listaOrdenes.get(item).getBebidas().size(); j++) {
-            res += ( listaOrdenes.get(item).getBebidas().get(j).getNombre() + " $" + listaOrdenes.get(item).getBebidas().get(j).getPrecio() + "\n");
+        for (int x=0; x< listaOrdenes.size(); x++){
+            int z =listaOrdenes.get(x).getId();
+            if(z==ID) {
+                for (int j = 0; j < listaOrdenes.get(x).getPlatillos().size(); j++) {
+                    res += (listaOrdenes.get(x).getPlatillos().get(j).getNombre() + " $" + listaOrdenes.get(x).getPlatillos().get(j).getPrecio() + "\n");
+                }
+                for (int j = 0; j < listaOrdenes.get(x).getBebidas().size(); j++) {
+                    res += (listaOrdenes.get(x).getBebidas().get(j).getNombre() + " $" + listaOrdenes.get(x).getBebidas().get(j).getPrecio() + "\n");
+                }
+            }
         }
 
         orden.setText(res);
@@ -78,11 +81,19 @@ public class OrdenDetalleActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
+                        for (int x=0; x< listaOrdenes.size(); x++){
+                                    int z =listaOrdenes.get(x).getId();
+                                    if(z==ID){
 
-                        listaOrdenes.remove(item);
+                                            listaOrdenes.remove(x);
+                                        Toast toast = Toast.makeText(getApplicationContext(), "Orden Realizada", Toast.LENGTH_SHORT);
+                                        toast.show();
+                                    }
 
-                        Toast toast = Toast.makeText(getApplicationContext(), "Orden Realizada", Toast.LENGTH_SHORT);
-                        toast.show();
+
+                        }
+
+
 
                         volver(view);
 

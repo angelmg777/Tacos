@@ -30,13 +30,16 @@
         android:layout_marginTop="110dp"
         android:contentDescription="@string/user"
         android:onClick="administrarOrdenes"
+        android:backgroundTint="@color/fondoMenu"
+        android:scaleType="fitXY"
+        android:src="@drawable/orden"
         app:layout_constraintBottom_toTopOf="@+id/textView26"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.652"
         app:layout_constraintStart_toEndOf="@+id/imbMostrarOrdenes"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@drawable/administrartacos" />
+        />
 
     <ImageButton
         android:id="@+id/imbMesas"
@@ -44,13 +47,16 @@
         android:layout_height="150dp"
         android:contentDescription="@string/user"
         android:onClick="mesas"
+        android:backgroundTint="@color/fondoMenu"
+        android:scaleType="fitXY"
+        android:src="@drawable/mesas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.786"
-        tools:srcCompat="@drawable/mesastacos" />
+         />
 
     <ImageButton
         android:id="@+id/imbMostrarOrdenes"
@@ -60,11 +66,14 @@
         android:layout_marginTop="110dp"
         android:contentDescription="@string/user"
         android:onClick="mostrarOrdenes"
+        android:backgroundTint="@color/fondoMenu"
+        android:scaleType="fitXY"
+        android:src="@drawable/detalle"
         app:layout_constraintBottom_toTopOf="@+id/textView26"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@drawable/mostrartaco" />
+         />
 
     <TextView
         android:id="@+id/textView21"
@@ -112,6 +121,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imbMesas"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
