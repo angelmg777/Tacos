@@ -218,6 +218,14 @@ public class ModificarOrdenActivity extends AppCompatActivity {
 
                             } //for j
 
+                            //Guardado en memoria
+                            String ser = SerializableObject.objectToString(listaOrdenes);
+                            if (ser != null && !ser.equalsIgnoreCase("")) {
+                                SerializableObject.WriteSettings(ModificarOrdenActivity.this, ser, "myobject3.dat");
+                            } else {
+                                SerializableObject.WriteSettings(ModificarOrdenActivity.this, "", "myobject3.dat");
+                            }
+
                             Toast.makeText(ModificarOrdenActivity.this, "Se ha removido la orden con el id " + ordenId + " perteneciente a la mesa " + mesaId, Toast.LENGTH_SHORT).show();
                             listaOrdenes.remove(ii);
 

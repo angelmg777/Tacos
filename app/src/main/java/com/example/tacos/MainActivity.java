@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
 
@@ -69,6 +71,15 @@ public class MainActivity extends AppCompatActivity {
 
                 //Inicializacion de lista de ordenes
                 ArrayList<ClaseOrden> listaOrdenes = new ArrayList<ClaseOrden>();
+                String serC = SerializableObject.ReadSettings(MainActivity.this, "myobject3.dat");
+                if (serC != null && !serC.equalsIgnoreCase("")) {
+                    Object obj = SerializableObject.stringToObject(serC);
+                    // Then cast it to your object and
+                    if (obj instanceof ArrayList) {
+                        // Do something
+                        listaOrdenes = (ArrayList<ClaseOrden>)obj;
+                    }
+                }
 
                 //Inicializacion de array de mesas (porque aqui tiene que haber un numero de mesas por defecto)
                 ClaseMesa[] arrayMesas = new ClaseMesa[12];
@@ -87,6 +98,14 @@ public class MainActivity extends AppCompatActivity {
                 arrayMesas[10] = new ClaseMesa();
                 arrayMesas[11] = new ClaseMesa();
 
+                if(listaOrdenes.size() > 0){
+                    for (int j = 0; j < listaOrdenes.size(); j++) {
+                        int idTemporal = listaOrdenes.get(j).getMesaId();
+
+                        arrayMesas[idTemporal].getCuentas().add(listaOrdenes.get(j));
+                    }
+                }
+
                 if(nuevoUsuario()){
                     intent = new Intent(MainActivity.this, MenuActivity.class);
                     //Inicialiamos todos las listas y array en el main para asi ya nomas estar paseandolos en las activities
@@ -101,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                     //Inicialiamos todos las listas y array en el main para asi ya nomas estar paseandolos en las activities
                     intent.putExtra("listaTacos", listaTacos);
                     intent.putExtra("listaBebidas", listaBebidas);
-                    intent.putExtra("listaOrdenes", listaOrdenes);
+                    intent.putExtra("listaOrdenes", 00000);
                     intent.putExtra("arrayMesas", arrayMesas);
                     startActivity(intent);
                     finish();

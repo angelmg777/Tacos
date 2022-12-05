@@ -159,7 +159,13 @@ public class NuevaOrdenBebidasActivity extends AppCompatActivity {
                 nuevaOrden.setMesaId(mesaId-1);
                 arrayMesas[mesaId-1].cuentas.add(nuevaOrden);
 
-
+                //Guardado en memoria
+                String ser = SerializableObject.objectToString(listaOrdenes);
+                if (ser != null && !ser.equalsIgnoreCase("")) {
+                    SerializableObject.WriteSettings(NuevaOrdenBebidasActivity.this, ser, "myobject3.dat");
+                } else {
+                    SerializableObject.WriteSettings(NuevaOrdenBebidasActivity.this, "", "myobject3.dat");
+                }
 
                 Toast.makeText(NuevaOrdenBebidasActivity.this, "Añadida la orden numero " + arrayMesas[mesaId-1].cuentas.size() + " de la mesa " + s + ", con el ID de " + nuevaOrden.getId(), Toast.LENGTH_SHORT).show();
 
