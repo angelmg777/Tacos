@@ -42,7 +42,7 @@
         android:layout_width="155dp"
         android:layout_height="156dp"
         android:layout_marginTop="52dp"
-        android:contentDescription="@string/AdministrarOrden"
+        android:contentDescription=""
         android:onClick="modificarOrden"
         android:src="@drawable/modificartacoo"
         app:layout_constraintBottom_toTopOf="@+id/btnVolverAdministrarOrdenes"

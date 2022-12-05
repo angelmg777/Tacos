@@ -42,8 +42,8 @@
 
     <Spinner
         android:id="@+id/spnModificarOrdenId"
-        android:layout_width="322dp"
-        android:layout_height="40dp"
+        android:layout_width="321dp"
+        android:layout_height="66dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

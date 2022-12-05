@@ -27,6 +27,7 @@ public class ModificarOrdenActivity extends AppCompatActivity {
     Spinner spnModificarOrdenId;
     String[] arrayIds;
     String ordenId;
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +60,7 @@ public class ModificarOrdenActivity extends AppCompatActivity {
             arrayIds[i] = idString;
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.dialogo_spinner, arrayIds);
+        adapter = new ArrayAdapter<String>(this, R.layout.listperzonalizada, arrayIds);
         spnModificarOrdenId.setAdapter(adapter);
     } //onCreate
 

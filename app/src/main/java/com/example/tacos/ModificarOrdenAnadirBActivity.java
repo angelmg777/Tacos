@@ -81,6 +81,18 @@ public class ModificarOrdenAnadirBActivity extends AppCompatActivity {
                                     // y meterle el platillo
                                     if(listaOrdenes.get(it).getId() == idInt){
                                         listaOrdenes.get(it).getBebidas().add(listaBebidas.get(item));
+
+                                        //El codigo de aqui es para tambien modificar los cambios en su respectiva mesa
+                                        ClaseOrden temporal = listaOrdenes.get(it);
+                                        int id = temporal.getMesaId();
+
+                                        for (int j = 0; j < arrayMesas[id].getCuentas().size(); j++) {
+                                            //Que si son la misma cuenta dentro de la mesa, se modifique
+                                            if(arrayMesas[id].getCuentas().get(j).getId() == temporal.getId()){
+                                                arrayMesas[id].getCuentas().get(j).setBebidas(temporal.getBebidas());
+                                            }
+                                        }
+
                                         //Esto para que se acabe el for
                                         it=listaOrdenes.size();
                                     }
