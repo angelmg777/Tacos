@@ -102,6 +102,14 @@ public class ModificarOrdenQuitarBActivity extends AppCompatActivity {
                                     }
                                 }
 
+                                //Guardado en memoria
+                                String ser = SerializableObject.objectToString(listaOrdenes);
+                                if (ser != null && !ser.equalsIgnoreCase("")) {
+                                    SerializableObject.WriteSettings(ModificarOrdenQuitarBActivity.this, ser, "myobject3.dat");
+                                } else {
+                                    SerializableObject.WriteSettings(ModificarOrdenQuitarBActivity.this, "", "myobject3.dat");
+                                }
+
                                 recargar();
 
                             }

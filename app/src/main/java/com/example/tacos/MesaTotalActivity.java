@@ -64,10 +64,11 @@ public class MesaTotalActivity extends AppCompatActivity {
                     total = total + arrayMesas[item].cuentas.get(i).getBebidas().get(k).getPrecio();
                     res += (arrayMesas[item].cuentas.get(i).getBebidas().get(k).getNombre() + "           $" + arrayMesas[item].cuentas.get(i).getBebidas().get(k).getPrecio() + "\n");
                 }
+                res += "\n";
             }
 
             double propina = total * 0.15;
-            res += ("\nTotal a Pagar:       $" + total);
+            res += ("Total a Pagar:       $" + total);
             res += ("\nPropina sugerida 15%=   $" + propina);
 
 
@@ -112,83 +113,6 @@ public class MesaTotalActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(), "Esta cuenta ya fue pagada", Toast.LENGTH_SHORT);
             toast.show();
         } else {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             new AlertDialog.Builder(MesaTotalActivity.this)
                     .setTitle("Se pago la cuenta de essta mesa?")
                     .setPositiveButton("Si", new DialogInterface.OnClickListener() {

@@ -93,6 +93,14 @@ public class ModificarOrdenAnadirBActivity extends AppCompatActivity {
                                             }
                                         }
 
+                                        //Guardado en memoria
+                                        String ser = SerializableObject.objectToString(listaOrdenes);
+                                        if (ser != null && !ser.equalsIgnoreCase("")) {
+                                            SerializableObject.WriteSettings(ModificarOrdenAnadirBActivity.this, ser, "myobject3.dat");
+                                        } else {
+                                            SerializableObject.WriteSettings(ModificarOrdenAnadirBActivity.this, "", "myobject3.dat");
+                                        }
+
                                         //Esto para que se acabe el for
                                         it=listaOrdenes.size();
                                     }
