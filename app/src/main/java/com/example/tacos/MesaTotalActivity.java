@@ -29,14 +29,10 @@ public class MesaTotalActivity extends AppCompatActivity {
 
     int iteM;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mesa_total);
-
-
 
         listaTacos = (ArrayList<ClaseTaco>) getIntent().getSerializableExtra("listaTacos");
         listaBebidas = (ArrayList<ClaseBebida>) getIntent().getSerializableExtra("listaBebidas");
@@ -45,16 +41,13 @@ public class MesaTotalActivity extends AppCompatActivity {
         int item = (int) getIntent().getSerializableExtra("item");
 
         totalMesa = (TextView) findViewById(R.id.txtTotal);
-        volver = (Button) findViewById(R.id.btnVolverMesas);
+        volver = (Button) findViewById(R.id.btnVolverTotal);
         pagada = (Button) findViewById(R.id.btnPagada);
-
-
 
 
         if(arrayMesas[item].cuentas.isEmpty()){
             NoHay(item);
         }else {
-
 
             String res = "";
             int total = 0;
@@ -119,6 +112,83 @@ public class MesaTotalActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(), "Esta cuenta ya fue pagada", Toast.LENGTH_SHORT);
             toast.show();
         } else {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             new AlertDialog.Builder(MesaTotalActivity.this)
                     .setTitle("Se pago la cuenta de essta mesa?")
                     .setPositiveButton("Si", new DialogInterface.OnClickListener() {

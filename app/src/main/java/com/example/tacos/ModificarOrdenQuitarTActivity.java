@@ -46,7 +46,7 @@ public class ModificarOrdenQuitarTActivity extends AppCompatActivity {
         //Configuracion de esta activity
         ordenId = (String) getIntent().getStringExtra("ordenId");
         lvModificarQuitarT = (ListView) findViewById(R.id.lvModificarQuitarT);
-        btnVolverModificarOrdenQuitarT = (Button) findViewById(R.id.btnVolverModificarOrdenAñadirT);
+        btnVolverModificarOrdenQuitarT = (Button) findViewById(R.id.btnVolverModificarOrdenQuitarT);
         idInt = Integer.parseInt(ordenId); //Aqui lo pasamos a integer
 
         //Hacemos un for para buscar el elemento que comparta el id de ordenId y asignarlo a la variable temporal
@@ -90,6 +90,17 @@ public class ModificarOrdenQuitarTActivity extends AppCompatActivity {
                                 toast.show();
 
                                 listaOrdenes.get(posicionDelTemporal).getPlatillos().remove(item);
+
+                                //El codigo de aqui es para tambien modificar los cambios en su respectiva mesa
+                                ClaseOrden temporal = listaOrdenes.get(posicionDelTemporal);
+                                int id = temporal.getMesaId();
+
+                                for (int j = 0; j < arrayMesas[id].getCuentas().size(); j++) {
+                                    //Que si son la misma cuenta dentro de la mesa, se modifique
+                                    if(arrayMesas[id].getCuentas().get(j).getId() == temporal.getId()){
+                                        arrayMesas[id].getCuentas().get(j).setPlatillos(temporal.getPlatillos());
+                                    }
+                                }
 
                                 recargar();
 

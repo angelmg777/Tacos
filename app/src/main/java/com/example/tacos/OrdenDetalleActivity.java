@@ -44,7 +44,7 @@ public class OrdenDetalleActivity extends AppCompatActivity {
 
 
         for (int x=0; x< listaOrdenes.size(); x++){
-            int z =listaOrdenes.get(x).getId();
+            int z = listaOrdenes.get(x).getId();
             if(z==ID) {
                 for (int j = 0; j < listaOrdenes.get(x).getPlatillos().size(); j++) {
                     res += (listaOrdenes.get(x).getPlatillos().get(j).getNombre() + " $" + listaOrdenes.get(x).getPlatillos().get(j).getPrecio() + "\n");
@@ -52,8 +52,12 @@ public class OrdenDetalleActivity extends AppCompatActivity {
                 for (int j = 0; j < listaOrdenes.get(x).getBebidas().size(); j++) {
                     res += (listaOrdenes.get(x).getBebidas().get(j).getNombre() + " $" + listaOrdenes.get(x).getBebidas().get(j).getPrecio() + "\n");
                 }
+
+                res += "\nPerteneciente a la mesa: " + (listaOrdenes.get(x).getMesaId()+1);
             }
         }
+
+
 
         orden.setText(res);
 
